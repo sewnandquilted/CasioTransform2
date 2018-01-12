@@ -5,12 +5,92 @@ import java.math.BigDecimal;
 import java.nio.file.Path;
 import java.util.Scanner;
 
+import casio.ETL.model.Z001;
 import casio.ETL.model.Z002;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Z002Util {
 
+	public static String z002InsertRow(Z002 z2) {
+	
+	String stmt = "cashAmount = " + z2.getCashAmount().toString() +  ","
+			+"cashQuantity = " + z2.getCashQuantity().toString() +  ","
+			+"ceAmount = " + z2.getCeAmount().toString() +  ","
+			+"ceQuantity = " + z2.getCeQuantity().toString() +  ","
+			+"chargeAmount = " + z2.getChargeAmount().toString() +  ","
+			+"chargeQuantity = " + z2.getChargeQuantity().toString() +  ","
+			+"checkAmount = " + z2.getCheckAmount().toString() +  ","
+			+"checkQuantity = " + z2.getCheckQuantity().toString() +  ","
+			+"clknoAmount = " + z2.getClknoAmount().toString() +  ","
+			+"clknoQuantity = " + z2.getClknoQuantity().toString() +  ","
+			+"corrAmount = " + z2.getCorrAmount().toString() +  ","
+			+"corrQuantity = " + z2.getCorrQuantity().toString() +  ","
+			+"couponAmount = " + z2.getCouponAmount().toString() +  ","
+			+"couponQuantity = " + z2.getCouponQuantity().toString() +  ","
+			+"discountAmount = " + z2.getDiscountAmount().toString() +  ","
+			+"discountQuantity = " + z2.getDiscountQuantity().toString() +  ","
+			+"dotAmount = " + z2.getDotAmount().toString() +  ","
+			+"dotQuantity = " + z2.getDotQuantity().toString() +  ","
+			+"dwnAmount = " + z2.getDwnAmount().toString() +  ","
+			+"dwnQuantity = " + z2.getDwnQuantity().toString() +  ","
+			+"hashAmount = " + z2.getHashAmount().toString() +  ","
+			+"hashQuantity = " + z2.getHashQuantity().toString() +  ","
+			+"helpAmount = " + z2.getHelpAmount().toString() +  ","
+			+"helpQuantity = " + z2.getHelpQuantity().toString() +  ","
+			+"nosaleAmount = " + z2.getNosaleAmount().toString() +  ","
+			+"nosaleQuantity = " + z2.getNosaleQuantity().toString() +  ","
+			+"nsAmount = " + z2.getNsAmount().toString() +  ","
+			+"nsQuantity = " + z2.getNsQuantity().toString() +  ","
+			+"openAmount = " + z2.getOpenAmount().toString() +  ","
+			+"openQuantity = " + z2.getOpenQuantity().toString() +  ","
+			+"pctdiscountAmount = " + z2.getPctdiscountAmount().toString() +  ","
+			+"pctdiscountQuantity = " + z2.getPctdiscountQuantity().toString() +  ","
+			+"pluAmount = " + z2.getPluAmount().toString() +  ","
+			+"pluQuantity = " + z2.getPluQuantity().toString() +  ","
+			+"poAmount = " + z2.getPoAmount().toString() +  ","
+			+"poQuantity = " + z2.getPoQuantity().toString() +  ","
+			+"prcAmount = " + z2.getPrcAmount().toString() +  ","
+			+"prcQuantity = " + z2.getPrcQuantity().toString() +  ","
+			+"raAmount = " + z2.getRaAmount().toString() +  ","
+			+"raQuantity = " + z2.getRaQuantity().toString() +  ","
+			+"rctAmount = " + z2.getRctAmount().toString() +  ","
+			+"rctQuantity = " + z2.getRctQuantity().toString() +  ","
+			+"receiptAmount = " + z2.getReceiptAmount().toString() +  ","
+			+"receiptQuantity = " + z2.getReceiptQuantity().toString() +  ","
+			+"rfAmount = " + z2.getRfAmount().toString() +  ","
+			+"rfQuantity = " + z2.getRfQuantity().toString() +  ","
+			+"shiftnoAmount = " + z2.getShiftnoAmount().toString() +  ","
+			+"shiftnoQuantity = " + z2.getShiftnoQuantity().toString() +  ","
+			+"signoffAmount = " + z2.getSignoffAmount().toString() +  ","
+			+"signoffQuantity = " + z2.getSignoffQuantity().toString() +  ","
+			+"subtotalAmount = " + z2.getSubtotalAmount().toString() +  ","
+			+"subtotalQuantity = " + z2.getSubtotalQuantity().toString() +  ","
+			+"taxpgmAmount = " + z2.getTaxpgmAmount().toString() +  ","
+			+"taxpgmQuantity = " + z2.getTaxpgmQuantity().toString() +  ","
+			+"upAmount = " + z2.getUpAmount().toString() +  ","
+			+"upQuantity = " + z2.getUpQuantity().toString() +  ","
+			+"vatAmount = " + z2.getVatAmount().toString() +  ","
+			+"vatQuantity = " + z2.getVatQuantity().toString() +  ","
+			+"voidAmount = " + z2.getVoidAmount().toString() +  ","
+			+"voidQuantity = " + z2.getVoidQuantity().toString() +  ","
+			+"xAmount = " + z2.getxAmount().toString() +  ","
+			+"xQuantity = " + z2.getxQuantity().toString() +  ","
+			+"z02date = " + z2.getZ02date().toString() +  ","
+			+"z02file = " + z2.getZ02file().toString() +  ","
+			+"z02machine = " + z2.getZ02machine().toString() +  ","
+			+"z02mode = " + z2.getZ02mode().toString() +  ","
+			+"z02model = " + z2.getZ02model().toString() +  ","
+			+"z02report = " + z2.getZ02report().toString() +  ","
+			+"z02time = " + z2.getZ02time().toString() +  ","
+			+"z02zcounter = " + z2.getZ02zcounter() +  ","
+			+"zeroAmount = " + z2.getZeroAmount().toString() +  ","
+			+"zeroQuantity = " + z2.getZeroQuantity().toString() +  "," ;
+	
+	return stmt;
+	}
+			
+			
 	public static Z002 extractZ002from(Path filePath) throws IOException {
 		Z002 z02 = new Z002();
 		String line = null;

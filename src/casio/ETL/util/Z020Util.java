@@ -5,11 +5,21 @@ import java.math.BigDecimal;
 import java.nio.file.Path;
 import java.util.Scanner;
 
+import casio.ETL.model.Z005;
 import casio.ETL.model.Z020;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Z020Util {
+	public static String z020InsertRow(Z020 z20) {
+		String aa = "grandTotal = " + z20.getGrandTotal().toString() + "," + "prevGrandTotal = "
+				+ z20.getPrevGrandTotal().toString() + "," + "z20date = " + z20.getZ20date().toString() + ","
+				+ "z20file = " + z20.getZ20file().toString() + "," + "z20machine = " + z20.getZ20machine().toString()
+				+ "," + "z20mode = " + z20.getZ20mode().toString() + "," + "z20model = " + z20.getZ20model().toString()
+				+ "," + "z20time = " + z20.getZ20time().toString() + "," + "z20zcounter = " + z20.getZ20zcounter()
+				+ ",";
+		return aa;
+	}
 
 	public static Z020 extractZ020from(Path filePath) throws IOException {
 		Z020 z20 = new Z020();
@@ -20,12 +30,12 @@ public class Z020Util {
 			// each file generates a single Z001 record
 			line = s.nextLine();
 			String split[] = line.split("\",\"");
-//			System.out.println("Line is |" + line + "|");
+			// System.out.println("Line is |" + line + "|");
 			for (int i = 0; i < split.length; i++) {
 				split[i] = split[i].replaceAll("\"", "").trim();
-//				System.out.print("Split[" + i + "] is |" + split[i] + "|,");
+				// System.out.print("Split[" + i + "] is |" + split[i] + "|,");
 			}
-//			System.out.println();
+			// System.out.println();
 			switch (split[0]) {
 			case "MODEL": {
 				z20.setZ20model(split[1]);

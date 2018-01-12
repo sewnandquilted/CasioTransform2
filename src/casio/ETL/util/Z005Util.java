@@ -5,11 +5,45 @@ import java.math.BigDecimal;
 import java.nio.file.Path;
 import java.util.Scanner;
 
+import casio.ETL.model.Z002;
 import casio.ETL.model.Z005;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Z005Util {
+
+	public static String z005InsertRow(Z005 z5) {
+		String aa = "insert into z001 set " + "battingAmount = " + z5.getBattingAmount().toString() + ","
+				+ "battingQuantity = " + z5.getBattingQuantity().toString() + "," + "bomAmount = "
+				+ z5.getBomAmount().toString() + "," + "bomQuantity = " + z5.getBomQuantity().toString() + ","
+				+ "bookAmount = " + z5.getBookAmount().toString() + "," + "bookQuantity = "
+				+ z5.getBookQuantity().toString() + "," + "classAmount = " + z5.getClassAmount().toString() + ","
+				+ "classQuantity = " + z5.getClassQuantity().toString() + "," + "fabricAmount = "
+				+ z5.getFabricAmount().toString() + "," + "fabricQuantity = " + z5.getFabricQuantity().toString() + ","
+				+ "giftCertAmount = " + z5.getGiftCertAmount().toString() + "," + "giftCertQuantity = "
+				+ z5.getGiftCertQuantity().toString() + "," + "janomeAmount = " + z5.getJanomeAmount().toString() + ","
+				+ "janomeQuantity = " + z5.getJanomeQuantity().toString() + "," + "kitsAmount = "
+				+ z5.getKitsAmount().toString() + "," + "kitsQuantity = " + z5.getKitsQuantity().toString() + ","
+				+ "longarmAmount = " + z5.getLongarmAmount().toString() + "," + "longarmQuantity = "
+				+ z5.getLongarmQuantity().toString() + "," + "miscAmount = " + z5.getMiscAmount().toString() + ","
+				+ "miscQuantity = " + z5.getMiscQuantity().toString() + "," + "notionAmount = "
+				+ z5.getNotionAmount().toString() + "," + "notionQuantity = " + z5.getNotionQuantity().toString() + ","
+				+ "patternAmount = " + z5.getPatternAmount().toString() + "," + "patternQuantity = "
+				+ z5.getPatternQuantity().toString() + "," + "patternsAmount = " + z5.getPatternsAmount().toString()
+				+ "," + "patternsQuantity = " + z5.getPatternsQuantity().toString() + "," + "postageAmount = "
+				+ z5.getPostageAmount().toString() + "," + "postageQuantity = " + z5.getPostageQuantity().toString()
+				+ "," + "saleFabricAmount = " + z5.getSaleFabricAmount().toString() + "," + "saleFabricQuantity = "
+				+ z5.getSaleFabricQuantity().toString() + "," + "threadsAmount = " + z5.getThreadsAmount().toString()
+				+ "," + "threadsQuantity = " + z5.getThreadsQuantity().toString() + "," + "unknownDeptAmount = "
+				+ z5.getUnknownDeptAmount().toString() + "," + "unknownDeptQuantity = "
+				+ z5.getUnknownDeptQuantity().toString() + "," + "workshopAmount = " + z5.getWorkshopAmount().toString()
+				+ "," + "workshopQuantity = " + z5.getWorkshopQuantity().toString() + "," + "z05date = "
+				+ z5.getZ05date().toString() + "," + "z05file = " + z5.getZ05file().toString() + "," + "z05machine = "
+				+ z5.getZ05machine().toString() + "," + "z05mode = " + z5.getZ05mode().toString() + "," + "z05model = "
+				+ z5.getZ05model().toString() + "," + "z05report = " + z5.getZ05report().toString() + "," + "z05time = "
+				+ z5.getZ05time().toString() + "," + "z05zcounter = " + z5.getZ05zcounter() + ",";
+		return aa;
+	}
 
 	public static Z005 extractZ005from(Path filePath) throws IOException {
 		Z005 z05 = new Z005();
@@ -20,12 +54,12 @@ public class Z005Util {
 			// each file generates a single Z001 record
 			line = s.nextLine();
 			String split[] = line.split("\",\"");
-//			System.out.println("Line is |" + line + "|");
+			// System.out.println("Line is |" + line + "|");
 			for (int i = 0; i < split.length; i++) {
 				split[i] = split[i].replaceAll("\"", "").trim();
-//				System.out.print("Split[" + i + "] is |" + split[i] + "|,");
+				// System.out.print("Split[" + i + "] is |" + split[i] + "|,");
 			}
-//			System.out.println();
+			// System.out.println();
 			switch (split[0]) {
 			case "MODEL": {
 				z05.setZ05model(split[1]);
@@ -82,9 +116,9 @@ public class Z005Util {
 			}
 			case "0005": {
 				z05.setUnknownDeptQuantity(valueOf(split[2]));
-//						.add(z05.getUnknownDeptQuantity()));
+				// .add(z05.getUnknownDeptQuantity()));
 				z05.setUnknownDeptAmount(valueOf(split[3]));
-//						.add(z05.getUnknownDeptAmount()));
+				// .add(z05.getUnknownDeptAmount()));
 				break;
 			}
 			case "0006": {

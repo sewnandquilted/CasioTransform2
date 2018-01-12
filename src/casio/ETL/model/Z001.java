@@ -95,38 +95,6 @@ public class Z001 {
 		private BigDecimal tx4Amount;
 		private BigDecimal nontaxAmount;
 
-		public String z001CreateTableString() {
-			return "create table z001 ( " + "z01model varchar," + "z01machine varchar," + "z01report varchar,"
-					+ "z01file varchar," + "z01mode varchar," + "z01zcounter integer," + "z01date varchar,"
-					+ "z01time varchar," + "grossQuantity integer," + "netQuantity integer," + "cashindrawQuantity integer,"
-					+ "chidQuantity integer," + "ckidQuantity integer," + "crid1Quantity integer,"
-					+ "crid2Quantity integer," + "crid3Quantity integer," + "crid4Quantity integer,"
-					+ "caid2Quantity integer," + "chid2Quantity integer," + "ckid2Quantity integer,"
-					+ "crid21Quantity integer," + "crid22Quantity integer," + "crid23Quantity integer,"
-					+ "crid24Quantity integer," + "rfQuantity integer," + "custQuantity integer," + "avrgQuantity integer,"
-					+ "c1Quantity integer," + "c2Quantity integer," + "ceca1Quantity integer," + "ceck1Quantity integer,"
-					+ "ceca2Quantity integer," + "ceck2Quantity integer," + "dcQuantity integer,"
-					+ "couponQuantity integer," + "refundQuantity integer," + "roundQuantity integer,"
-					+ "roundQuantity integer," + "cancelQuantity integer," + "declaQuantity integer,"
-					+ "taxableamtQuantity integer," + "gstincludedQuantity integer," + "ta2Quantity integer,"
-					+ "tx2Quantity integer," + "ta3Quantity integer," + "tx3Quantity integer," + "ta4Quantity integer,"
-					+ "tx4Quantity integer," + "nontaxQuantity integer," + "grossAmount decimal(10,2),"
-					+ "netAmount decimal(10,2)," + "cashindrawAmount decimal(10,2)," + "chidAmount decimal(10,2),"
-					+ "ckidAmount decimal(10,2)," + "crid1Amount decimal(10,2)," + "crid2Amount decimal(10,2),"
-					+ "crid3Amount decimal(10,2)," + "crid4Amount decimal(10,2)," + "caid2Amount decimal(10,2),"
-					+ "chid2Amount decimal(10,2)," + "ckid2Amount decimal(10,2)," + "crid21Amount decimal(10,2),"
-					+ "crid22Amount decimal(10,2)," + "crid23Amount decimal(10,2)," + "crid24Amount decimal(10,2),"
-					+ "rfAmount decimal(10,2)," + "custAmount decimal(10,2)," + "avrgAmount decimal(10,2),"
-					+ "c1Amount decimal(10,2)," + "c2Amount decimal(10,2)," + "ceca1Amount decimal(10,2),"
-					+ "ceck1Amount decimal(10,2)," + "ceca2Amount decimal(10,2)," + "ceck2Amount decimal(10,2),"
-					+ "dcAmount decimal(10,2)," + "couponAmount decimal(10,2)," + "refundAmount decimal(10,2),"
-					+ "roundAmount decimal(10,2)," + "roundAmount decimal(10,2)," + "cancelAmount decimal(10,2),"
-					+ "declaAmount decimal(10,2)," + "taxableamtAmount decimal(10,2)," + "gstincludedAmount decimal(10,2),"
-					+ "ta2Amount decimal(10,2)," + "tx2Amount decimal(10,2)," + "ta3Amount decimal(10,2),"
-					+ "tx3Amount decimal(10,2)," + "ta4Amount decimal(10,2)," + "tx4Amount decimal(10,2),"
-					+ "nontaxAmount decimal(10,2)" + " );";
-
-		}
 
 		public String getZ01model() {
 			return z01model;
