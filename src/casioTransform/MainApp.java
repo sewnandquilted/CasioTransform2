@@ -28,6 +28,7 @@ import casioTransform.view.BirthdayStatisticsController;
 import casioTransform.view.PersonEditDialogController;
 import casioTransform.view.PersonOverviewController;
 import casioTransform.view.RootLayoutController;
+import casioTransform.view.directoryScanController;
 
 public class MainApp extends Application {
 
@@ -77,7 +78,7 @@ public class MainApp extends Application {
 
         initRootLayout();
 
-        showPersonOverview();
+        showDirectoryScan();
     }
 
     /**
@@ -106,10 +107,10 @@ public class MainApp extends Application {
         }
 
         // Try to load last opened person file.
-        File file = getPersonFilePath();
-        if (file != null) {
-            loadPersonDataFromFile(file);
-        }
+//        File file = getPersonFilePath();
+//        if (file != null) {
+//            loadPersonDataFromFile(file);
+//        }
     }
 
     /**
@@ -127,6 +128,27 @@ public class MainApp extends Application {
 
             // Give the controller access to the main app.
             PersonOverviewController controller = loader.getController();
+            controller.setMainApp(this);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    /**
+     * Shows the person overview inside the root layout.
+     */
+    public void showDirectoryScan() {
+        try {
+            // Load person overview.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("view/DirectoryScan.fxml"));
+            AnchorPane directoryScan = (AnchorPane) loader.load();
+
+            // Set person overview into the center of root layout.
+            rootLayout.setCenter(directoryScan);
+
+            // Give the controller access to the main app.
+            directoryScanController controller = loader.getController();
             controller.setMainApp(this);
 
         } catch (IOException e) {
@@ -249,61 +271,61 @@ public class MainApp extends Application {
      * 
      * @param file
      */
-    public void loadPersonDataFromFile(File file) {
-        try {
-            JAXBContext context = JAXBContext
-                    .newInstance(PersonListWrapper.class);
-            Unmarshaller um = context.createUnmarshaller();
-
-            // Reading XML from the file and unmarshalling.
-            PersonListWrapper wrapper = (PersonListWrapper) um.unmarshal(file);
-
-            personData.clear();
-            personData.addAll(wrapper.getPersons());
-
-            // Save the file path to the registry.
-            setPersonFilePath(file);
-
-        } catch (Exception e) { // catches ANY exception
-        	Alert alert = new Alert(AlertType.ERROR);
-        	alert.setTitle("Error");
-        	alert.setHeaderText("Could not load data");
-        	alert.setContentText("Could not load data from file:\n" + file.getPath());
-        	
-        	alert.showAndWait();
-        }
-    }
+//    public void loadPersonDataFromFile(File file) {
+//        try {
+//            JAXBContext context = JAXBContext
+//                    .newInstance(PersonListWrapper.class);
+//            Unmarshaller um = context.createUnmarshaller();
+//
+//            // Reading XML from the file and unmarshalling.
+//            PersonListWrapper wrapper = (PersonListWrapper) um.unmarshal(file);
+//
+//            personData.clear();
+//            personData.addAll(wrapper.getPersons());
+//
+//            // Save the file path to the registry.
+//            setPersonFilePath(file);
+//
+//        } catch (Exception e) { // catches ANY exception
+//        	Alert alert = new Alert(AlertType.ERROR);
+//        	alert.setTitle("Error");
+//        	alert.setHeaderText("Could not load data");
+//        	alert.setContentText("Could not load data from file:\n" + file.getPath());
+//        	
+//        	alert.showAndWait();
+//        }
+//    }
 
     /**
      * Saves the current person data to the specified file.
      * 
      * @param file
      */
-    public void savePersonDataToFile(File file) {
-        try {
-            JAXBContext context = JAXBContext
-                    .newInstance(PersonListWrapper.class);
-            Marshaller m = context.createMarshaller();
-            m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-
-            // Wrapping our person data.
-            PersonListWrapper wrapper = new PersonListWrapper();
-            wrapper.setPersons(personData);
-
-            // Marshalling and saving XML to the file.
-            m.marshal(wrapper, file);
-
-            // Save the file path to the registry.
-            setPersonFilePath(file);
-        } catch (Exception e) { // catches ANY exception
-        	Alert alert = new Alert(AlertType.ERROR);
-        	alert.setTitle("Error");
-        	alert.setHeaderText("Could not save data");
-        	alert.setContentText("Could not save data to file:\n" + file.getPath());
-        	
-        	alert.showAndWait();
-        }
-    }
+//    public void savePersonDataToFile(File file) {
+//        try {
+//            JAXBContext context = JAXBContext
+//                    .newInstance(PersonListWrapper.class);
+//            Marshaller m = context.createMarshaller();
+//            m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+//
+//            // Wrapping our person data.
+//            PersonListWrapper wrapper = new PersonListWrapper();
+//            wrapper.setPersons(personData);
+//
+//            // Marshalling and saving XML to the file.
+//            m.marshal(wrapper, file);
+//
+//            // Save the file path to the registry.
+//            setPersonFilePath(file);
+//        } catch (Exception e) { // catches ANY exception
+//        	Alert alert = new Alert(AlertType.ERROR);
+//        	alert.setTitle("Error");
+//        	alert.setHeaderText("Could not save data");
+//        	alert.setContentText("Could not save data to file:\n" + file.getPath());
+//        	
+//        	alert.showAndWait();
+//        }
+//    }
 
     /**
      * Returns the main stage.

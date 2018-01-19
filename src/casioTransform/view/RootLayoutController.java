@@ -76,9 +76,9 @@ public class RootLayoutController {
 		// Show save file dialog
 		File file = fileChooser.showOpenDialog(mainApp.getPrimaryStage());
 
-		if (file != null) {
-			mainApp.loadPersonDataFromFile(file);
-		}
+//		if (file != null) {
+//			mainApp.loadPersonDataFromFile(file);
+//		}
 	}
 
 	/**
@@ -87,12 +87,12 @@ public class RootLayoutController {
 	 */
 	@FXML
 	private void handleSave() {
-		File personFile = mainApp.getPersonFilePath();
-		if (personFile != null) {
-			mainApp.savePersonDataToFile(personFile);
-		} else {
-			handleSaveAs();
-		}
+//		File personFile = mainApp.getPersonFilePath();
+//		if (personFile != null) {
+//			mainApp.savePersonDataToFile(personFile);
+//		} else {
+//			handleSaveAs();
+//		}
 	}
 
 	/**
@@ -109,13 +109,13 @@ public class RootLayoutController {
 		// Show save file dialog
 		File file = fileChooser.showSaveDialog(mainApp.getPrimaryStage());
 
-		if (file != null) {
-			// Make sure it has the correct extension
-			if (!file.getPath().endsWith(".xml")) {
-				file = new File(file.getPath() + ".xml");
-			}
-			mainApp.savePersonDataToFile(file);
-		}
+//		if (file != null) {
+//			// Make sure it has the correct extension
+//			if (!file.getPath().endsWith(".xml")) {
+//				file = new File(file.getPath() + ".xml");
+//			}
+//			mainApp.savePersonDataToFile(file);
+//		}
 	}
 
 	/**
